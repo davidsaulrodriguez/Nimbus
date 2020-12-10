@@ -4,8 +4,8 @@ nav .badge {
     right: 20px;
 }
 
-.card-img img {
-    /* width: 50px; */
+.input-field input[type=search]:focus:not(.browser-default) {
+    background-color: #4a148c;
 }
 
 .todaysTemp {
