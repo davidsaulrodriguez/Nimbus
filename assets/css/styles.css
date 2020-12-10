@@ -1,0 +1,13 @@
+nav .badge {
+    position: relative;
+    top: 20px;
+    right: 20px;
+}
+
+.card-img img {
+    /* width: 50px; */
+}
+
+.todaysTemp {
+    margin: .2rem;
+}
