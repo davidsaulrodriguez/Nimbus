@@ -21,27 +21,24 @@
             </a>
             <ul class="right hide-on-med-and-down">
                 <li><a href="./">Home</a></li>
-                <li><a href="#about" class="modal-trigger">About</a></li>
+                <li><a href="#hist" class="modal-trigger">History</a></li>
                 <li>
                     <a href="#login" class="btn-floating purple z-depth-0 modal-trigger">
                         <i class="material-icons">person</i>
                     </a>
                 </li>
-                <!-- <li>
-                    <span class="badge white-text red darken-1 new">5</span>
-                </li> -->
             </ul>
         </div>
     </nav>
     <div class="container">
       <form class="col s12 m6">
-        <div class="row">
-          <div class="input-field col s6 offset-s3 offset-m3">
+      <div class="row">
+          <div class="input-field col s10 m10 offset-s1 offset-m1">
             <form>
               <i class="material-icons prefix white-text">search</i>
               <label for="icon_prefix">Zip or City, State</label>
-              <input type="search" class="" name="search" id="searchBar" placeholder="Search City or Zip">
-              <button type="submit" class="btn purple" id="search">Search</button>
+              <input type="search" class="s6 m6 offset-m1 offset-s1" name="search" id="searchBar">
+              <input type="submit" class="btn purple s3 m3" id="search"></input>
             </form>
           </div>
         </div>
@@ -51,16 +48,22 @@
 
   <ul class="sidenav" id="mobile-links">
     <li><a href="./">Home</a></li>
-    <li><a href="#about" class="modal-trigger">About</a></li>
+    <li><a href="#hist" class="modal-trigger">History</a></li>
   </ul>
 
   <div class="row">
     <div class="col s12 m6 offset-l1">
       <div class="card purple darken-4">
         <div class="card-content white-text">
-          <span class="card-title todaysWeather">Today's Weather</span>
-          <h2 class="todaysTemp">63 &#176;F</h2>
-          <p>Last Updated: <span class="todaysDate">12/10/2020 10:28PM</span></p>
+          <div class="row">
+            <div class="col s6">
+              <span class="card-title todaysWeather">Today's Weather</span>
+              <h2 class="todaysTemp"></h2>
+              <p><span class="todaysDate"></span></p>
+            </div>
+            <div class="col s6" id="todaysImg">
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -70,72 +73,14 @@
           <p class="collection-item"><i class="material-icons tiny">cloud</i> Wind Speed<span class="right" id="ws_val"></span></p>
           <p class="collection-item"><i class="material-icons tiny">opacity</i> Humidity<span class="right" id="humid_val"></span></p>
           <p class="collection-item"><i class="material-icons tiny">ac_unit</i> Feels like<span class="right" id="fl_val"></span></p>
-          <p class="collection-item"><i class="material-icons tiny">visibility</i> UV Index<span class="right badge" id="vis_val"></span></p>
+          <p class="collection-item"><i class="material-icons tiny">flare</i> UV Index<span class="right badge uvi_val" id="uvi_val"></span></p>
         </div>
       </div>
     </div>
   </div>
 
-  <h3 class="center">5 Day Forecast</h3>
-
-  <div class="">
-    <div class="row">
-      <div class="col s12 m6 l2 offset-l1">
-        <div class="card z-depth-3">
-          <div class="card-image">
-            <img src="http://openweathermap.org/img/wn/01d@4x.png">
-            <span class="card-title black-text">12/10/2020</span>
-          </div>
-          <div class="card-content">
-            <p>I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively.</p>
-          </div>
-        </div>
-      </div>
-      <div class="col s12 m6 l2">
-        <div class="card z-depth-3">
-          <div class="card-image">
-            <img src="http://openweathermap.org/img/wn/01d@4x.png">
-            <span class="card-title black-text">12/10/2020</span>
-          </div>
-          <div class="card-content">
-            <p>I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively.</p>
-          </div>
-        </div>
-      </div>
-      <div class="col s12 m6 l2">
-        <div class="card z-depth-3">
-          <div class="card-image">
-            <img src="http://openweathermap.org/img/wn/01d@4x.png">
-            <span class="card-title black-text">12/10/2020</span>
-          </div>
-          <div class="card-content">
-            <p>I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively.</p>
-          </div>
-        </div>
-      </div>
-      <div class="col s12 m6 l2">
-        <div class="card z-depth-3">
-          <div class="card-image">
-            <img src="http://openweathermap.org/img/wn/01d@4x.png">
-            <span class="card-title black-text">12/10/2020</span>
-          </div>
-          <div class="card-content">
-            <p>I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively.</p>
-          </div>
-        </div>
-      </div>
-      <div class="col s12 m6 l2 offset-m3">
-        <div class="card z-depth-3">
-          <div class="card-image">
-            <img src="http://openweathermap.org/img/wn/01d@4x.png">
-            <span class="card-title black-text">12/10/2020</span>
-          </div>
-          <div class="card-content">
-            <p>I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively.</p>
-          </div>
-        </div>
-      </div>
-    </div>
+  <div class="row center" id="5-days"> 
+    
   </div>
 
   <footer class="page-footer purple darken-4">
@@ -159,26 +104,15 @@
     </div>
   </footer>
 
-  <div class="modal" id="about">
+  <div class="modal" id="hist">
     <div class="modal-content">
-      <!-- <div class="container"> -->
-        <h4 class="center">Nimbus</h4>
-        <p>Nimbus is a simple </p>
-      <!-- </div> -->
-
-    </div>
-    <div class="modal-footer center">
-      <a href="#" class="modal-close btn purple">Close</a>
-    </div>
-  </div>
-
-  <div class="modal" id="errorModal">
-    <div class="modal-content">
-      <!-- <div class="container"> -->
-        <h4 class="center red">Nimbus</h4>
-        <p>Nimbus is a simple </p>
-      <!-- </div> -->
-
+        <h4 class="center">Search History</h4>
+        <div class="collection">
+          <!-- <p class="collection-item"><i class="material-icons tiny">cloud</i> Wind Speed<span class="right" id="ws_val"></span></p>
+          <p class="collection-item"><i class="material-icons tiny">opacity</i> Humidity<span class="right" id="humid_val"></span></p>
+          <p class="collection-item"><i class="material-icons tiny">ac_unit</i> Feels like<span class="right" id="fl_val"></span></p>
+          <p class="collection-item"><i class="material-icons tiny">flare</i> UV Index<span class="right badge uvi_val" id="uvi_val"></span></p> -->
+        </div>
     </div>
     <div class="modal-footer center">
       <a href="#" class="modal-close btn purple">Close</a>
