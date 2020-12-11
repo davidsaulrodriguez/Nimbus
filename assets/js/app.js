@@ -269,6 +269,7 @@ $(function() {
 
     $('.sidenav').sidenav();
     $('#hist').modal();
+    $('#about').modal();
     $('#login').modal();
     $('#errorModal').modal();
 
