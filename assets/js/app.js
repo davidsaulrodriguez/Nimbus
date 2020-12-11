@@ -274,7 +274,7 @@ $(function() {
         console.log(searchData)
         SaveData.push(searchData)
         localStorage.setItem('SaveData', JSON.stringify(SaveData));
-        const thedata = `<a href="javascript:void(0);" onClick="matchPattern(${data})" class="collection-item">${data}</a>`;
+        const thedata = `<a href="javascript:void(0);" onClick="checkIfZip(${data})" class="collection-item">${data}</a>`;
         $('#historyContent').append(thedata);
     }
 
