@@ -8,11 +8,19 @@ As a homework assignment, I had to build a weather app that would grab data from
 ## Live Site
 The app is deployed here at: [https://nimbus.bsdadm.com/][bsdadm]
 
+## How To Search
+
+You can search for weather using the following methods:
+ - Zip Code (ex: 06418)
+ - City and State (Derby, CT | Las Vegas, Nevada | Aurora, CO)
+   - The state can be an abbreviation. (ex: CT, NV, CO)
+   - The state can be spelled out completely. (Connecticut, Nevada, Colorado) 
+
 ## What will come with a refactor, later.
 
  - International Support
  - The option to change the length of the forecast.
- - User accounts
+ - User accounts and login functionality
  - Possibly a native mobile app using React.js
 
 ---
