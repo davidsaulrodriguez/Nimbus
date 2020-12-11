@@ -3,13 +3,24 @@ $(function() {
     const APIKey = '79a22b5b4b01535dd2b4487e901b8735';
     let stateAbbr = '';
     let state = '';
+    let SaveData = [];
     
     // Event Listeners
 
     $('#search').click(matchPattern);
 
 
+    init()
+
     // App Functions
+
+    function init() {
+        var loadedData = JSON.parse(localStorage.getItem("SaveData"));
+        if (SaveData !== null) {
+            loadedData = SaveData;
+        }
+        LoadData();
+    }
 
     function checkIfZip(value) {
         const regexp = (/(^\d{5}$)|(^\d{5}-\d{4}$)/);
@@ -108,7 +119,7 @@ $(function() {
                 $('#humid_val').text(`${response.main.humidity}%`);
                 $('#fl_val').html(`${response.main.feels_like.toFixed(1)} &#176;F`);
                 let todaysImg = $('<img>');
-                todaysImg.attr('src', `${iconurl}`);
+                todaysImg.attrevent, ('src', `${iconurl}`);
                 $('#todaysImg').html(todaysImg);
 
                 let lati = response.coord.lat;
@@ -173,8 +184,10 @@ $(function() {
 
     function matchPattern(event, value) {
         event.preventDefault();
+        let searchInput = $('#searchBar').val().trim();
         $('todaysImg').remove()
-        const searchInput = $('#searchBar').val();
+        save(searchInput);
+        LoadData()
         checkIfZip(searchInput);
     };
 
@@ -255,6 +268,27 @@ $(function() {
     function fullToAbbr (stateFull) {
         return stateList[stateFull];
     }
+
+    function save(data) {
+        let searchData = data.trim();
+        console.log(searchData)
+        SaveData.push(searchData)
+        localStorage.setItem('SaveData', JSON.stringify(SaveData));
+        const thedata = `<a href="javascript:void(0);" onClick="matchPattern(${data})" class="collection-item">${data}</a>`;
+        $('#historyContent').append(thedata);
+    }
+
+    function LoadData() {
+        let loadedData = JSON.parse(localStorage.getItem('SaveData'));
+        if (loadedData) return SaveData = loadedData;
+        
+    }
+    
+    SaveData.forEach(item => {
+        let newItem = item.trim();
+        const thedata = `<a href="" onlick="matchPattern(\"${newItem}\")" class="collection-item">${item}</a>`;
+        $('#historyContent').append(thedata);
+    });
 
     function formatAMPM(date) {
         let hours = date.getHours();
